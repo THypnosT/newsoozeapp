@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsooze/main.dart';
+import 'package:newsoozeapp/main.dart';
 
 class feed extends StatelessWidget {
   const feed({Key? key}) : super(key: key);

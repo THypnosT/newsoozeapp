@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsooze/main.dart';
+import 'package:newsoozeapp/main.dart';
 
 class ajustes extends StatelessWidget {
   const ajustes({Key? key}) : super(key: key);
