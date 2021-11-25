@@ -43,12 +43,12 @@ class _InicioState extends State<Inicio> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            text_inicio(),
-            email(),
-            clave(),
-            boton_log(context),
-            text_reg(),
-            text_linkreg()
+            nombre(),
+            createEmailInput(),
+            createPasswordInput(),
+            loginButton(context),
+            renderCreateAccountLink(),
+            registro(),
           ],
         ),
       ),
@@ -56,20 +56,20 @@ class _InicioState extends State<Inicio> {
   }
 }
 
-Widget text_inicio() {
+Widget nombre() {
   return Text(
-    "Iniciar de Sesion",
+    'Iniciar Sesion',
     style: TextStyle(
         color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
   );
 }
 
-Widget email() {
+Widget createEmailInput() {
   return Container(
     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
     child: TextField(
       decoration: InputDecoration(
-        hintText: "Correo Electronico",
+        hintText: 'Correo Electronico',
         fillColor: Colors.white,
         filled: true,
       ),
@@ -77,12 +77,12 @@ Widget email() {
   );
 }
 
-Widget clave() {
+Widget createPasswordInput() {
   return Container(
     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
     child: TextField(
       decoration: InputDecoration(
-        hintText: "Clave",
+        hintText: 'Clave',
         fillColor: Colors.white,
         filled: true,
       ),
@@ -90,36 +90,38 @@ Widget clave() {
   );
 }
 
-Widget boton_log(context) {
-  return ElevatedButton(
-    style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-        primary: Colors.deepOrange[800],
-        onPrimary: Colors.white,
-        onSurface: Colors.deepOrange[700]),
-    onPressed: () {
-      //FUNCION BOTON LOGIN
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => feed()),
-      );
-    },
-    child: Text("Login"),
-  );
-}
-
-text_reg() {
-  return Text("¿Nuevo en la pagina?",
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 14,
+Widget loginButton(context) {
+  return Container(
+      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+      child: RaisedButton(
+        child: Text('Login'),
+        color: Colors.redAccent,
+        onPressed: () {
+          //FUNCION BOTON LOGIN
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => feed()),
+          );
+        },
       ));
 }
 
-text_linkreg() {
-  return Text("Registrarse",
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 14,
+Widget renderCreateAccountLink() {
+  return Container(
+      padding: EdgeInsets.only(top: 100),
+      child: Text(
+        '¿Nuevo en la página?',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ));
+}
+
+Widget registro() {
+  return Container(
+      padding: EdgeInsets.only(top: 10),
+      child: Text(
+        'Registrarse',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontWeight: FontWeight.bold),
       ));
 }
