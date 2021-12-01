@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
-  final correo = TextEditingController();
-  final clave = TextEditingController();
-
-  String usu = '';
-  String pass = '';
-
-  Widget nombre() {
+class Registro extends StatelessWidget {
+  Widget registro() {
     return Text(
-      'Iniciar Sesion',
+      'Creación de Usuario',
       style: TextStyle(
           color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+    );
+  }
+
+  Widget createUsuario() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: 'Usuario',
+          fillColor: Colors.white,
+          filled: true,
+        ),
+      ),
     );
   }
 
@@ -20,7 +26,6 @@ class LoginPage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: TextField(
-        controller: correo,
         decoration: InputDecoration(
           hintText: 'Correo Electronico',
           fillColor: Colors.white,
@@ -34,7 +39,6 @@ class LoginPage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: TextField(
-        controller: clave,
         decoration: InputDecoration(
           hintText: 'Clave',
           fillColor: Colors.white,
@@ -44,76 +48,49 @@ class LoginPage extends StatelessWidget {
     );
   }
 
+  Widget confirmarPassword() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: 'Confirmar Clave',
+          fillColor: Colors.white,
+          filled: true,
+        ),
+      ),
+    );
+  }
+
   Widget loginButton() {
     return Container(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
         child: RaisedButton(
-          padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-          color: Colors.redAccent,
           child: Text(
-            'Login',
+            'Registrar',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          onPressed: () {
-            usu = correo.text;
-            pass = clave.text;
-
-            if (usu == 'eer@hotmail.com' && pass == '4321') {
-              Get.toNamed("/feed");
-            } else {
-              var context;
-              showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                        title: Text('Newsooze'),
-                        content: SingleChildScrollView(
-                          child: ListBody(
-                            children: [
-                              Text('Verifica tus datos'),
-                            ],
-                          ),
-                        ),
-                        actions: [
-                          FlatButton(
-                            child: Text('Aceptar'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                          FlatButton(
-                            child: Text('Cancelar'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ]);
-                  });
-            }
-
-            correo.text = '';
-            clave.text = '';
-          },
+          color: Colors.redAccent,
+          onPressed: () {},
         ));
   }
 
   Widget renderCreateAccountLink() {
     return Container(
-        padding: EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.only(top: 100),
         child: Text(
-          '¿Nuevo en la página?',
+          '¿Ya posees una cuenta?',
           textAlign: TextAlign.center,
           style: TextStyle(fontWeight: FontWeight.bold),
         ));
   }
 
-  Widget registro(context) {
+  Widget iniciarSesion(context) {
     return GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, "/registro");
+          Navigator.pushNamed(context, "/login");
         },
         child: Text(
-          'Registrarse',
+          'Iniciar Sesión',
           textAlign: TextAlign.center,
           style: TextStyle(fontWeight: FontWeight.bold),
         ));
@@ -132,12 +109,14 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                nombre(),
+                registro(),
+                createUsuario(),
                 createEmailInput(),
                 createPasswordInput(),
+                confirmarPassword(),
                 loginButton(),
                 renderCreateAccountLink(),
-                registro(context),
+                iniciarSesion(context),
               ],
             ),
           )),

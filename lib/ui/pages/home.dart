@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:newsoozeapp/main.dart';
+import 'package:newsoozeapp/ui/pages/feedtab.dart';
+import 'package:newsoozeapp/ui/pages/perfiltab.dart';
+import 'package:newsoozeapp/ui/pages/notificacionestab.dart';
+import 'package:newsoozeapp/ui/pages/usuariostab.dart';
 
 class feed extends StatelessWidget {
   const feed({Key? key}) : super(key: key);
@@ -12,6 +15,27 @@ class feed extends StatelessWidget {
       home: MyStatefulWidget(),
     );
   }
+}
+
+Widget buscar() {
+  return Container(
+    margin: const EdgeInsets.all(20),
+    padding: const EdgeInsets.all(20),
+    alignment: Alignment.centerLeft,
+    height: 30,
+    width: 200,
+    decoration: myBoxDecoration(),
+    child: Text(
+      '',
+      style: TextStyle(fontSize: 30),
+    ),
+  );
+}
+
+BoxDecoration myBoxDecoration() {
+  return BoxDecoration(
+    border: Border.all(),
+  );
 }
 
 /// This is the stateful widget that the main application instantiates.
@@ -59,19 +83,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const <Widget>[
-          Center(
-            child: Text("Feed"),
-          ),
-          Center(
-            child: Text("Usuarios"),
-          ),
-          Center(
-            child: Text("Notificaciones"),
-          ),
-          Center(
-            child: Text("Perfil"),
-          ),
+        children: <Widget>[
+          Feed(),
+          Usuarios(),
+          Notificaciones(),
+          Perfil(),
         ],
       ),
     );
