@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newsoozeapp/main.dart';
 
 class error extends StatelessWidget {
   const error({Key? key}) : super(key: key);

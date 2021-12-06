@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:newsoozeapp/ui/pages/notificacionestab.dart';
-import 'package:newsoozeapp/ui/pages/perfiltab.dart';
-import 'package:newsoozeapp/ui/pages/usuariostab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/notificacionestab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/perfiltab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/usuariostab.dart';
 import 'package:newsoozeapp/ui/pages/loginPage.dart';
 import 'registro.dart';
-import 'package:newsoozeapp/ui/pages/feedtab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/feedtab.dart';
 import 'package:newsoozeapp/ui/pages/error.dart';
 import 'package:newsoozeapp/ui/pages/ajustes.dart';
 

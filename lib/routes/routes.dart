@@ -4,12 +4,12 @@ import 'package:newsoozeapp/ui/pages/home.dart';
 import 'package:newsoozeapp/ui/pages/test.dart';
 import 'package:newsoozeapp/ui/pages/ajustes.dart';
 import 'package:newsoozeapp/ui/pages/error.dart';
-import 'package:newsoozeapp/ui/pages/feedtab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/feedtab.dart';
 import 'package:newsoozeapp/ui/pages/main.dart';
-import 'package:newsoozeapp/ui/pages/notificacionestab.dart';
-import 'package:newsoozeapp/ui/pages/perfiltab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/notificacionestab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/perfiltab.dart';
 import 'package:newsoozeapp/ui/pages/registro.dart';
-import 'package:newsoozeapp/ui/pages/usuariostab.dart';
+import 'package:newsoozeapp/ui/pages/tabs/usuariostab.dart';
 
 routes() => [
       GetPage(name: "/feed", page: () => feed()),
